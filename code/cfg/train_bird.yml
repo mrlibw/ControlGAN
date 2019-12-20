@@ -1,0 +1,38 @@
+CONFIG_NAME: 'ControlGAN'
+
+DATASET_NAME: 'birds'
+DATA_DIR: '../data/birds'
+GPU_ID: 0
+WORKERS: 4
+
+
+TREE:
+    BRANCH_NUM: 3
+
+TRAIN:
+    FLAG: True
+    NET_G: '' 
+    B_NET_D: True
+    BATCH_SIZE: 8 
+    MAX_EPOCH: 600
+    SNAPSHOT_INTERVAL: 5 
+    DISCRIMINATOR_LR: 0.0002
+    GENERATOR_LR: 0.0002
+    #
+    NET_E: '../DAMSMencoders/bird/text_encoder.pth'
+    SMOOTH:
+        GAMMA1: 4.0 
+        GAMMA2: 5.0
+        GAMMA3: 10.0  
+        LAMBDA: 5.0
+
+
+GAN:
+    DF_DIM: 64
+    GF_DIM: 32
+    Z_DIM: 100
+    R_NUM: 2
+
+TEXT:
+    EMBEDDING_DIM: 256
+    CAPTIONS_PER_IMAGE: 10

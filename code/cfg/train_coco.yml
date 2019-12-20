@@ -1,0 +1,39 @@
+CONFIG_NAME: 'ControlGAN'
+
+DATASET_NAME: 'coco'
+DATA_DIR: '../data/coco'
+GPU_ID: 0
+WORKERS: 4
+
+
+TREE:
+    BRANCH_NUM: 3
+
+TRAIN:
+    FLAG: True
+    NET_G: '' 
+    B_NET_D: True
+    BATCH_SIZE: 8
+    MAX_EPOCH: 120
+    SNAPSHOT_INTERVAL: 1
+    DISCRIMINATOR_LR: 0.0002
+    GENERATOR_LR: 0.0002
+    #
+    NET_E: '../DAMSMencoders/coco/text_encoder.pth'
+    SMOOTH:
+        GAMMA1: 4.0  
+        GAMMA2: 5.0
+        GAMMA3: 10.0 
+        LAMBDA: 50.0
+
+
+GAN:
+    DF_DIM: 96
+    GF_DIM: 48
+    Z_DIM: 100
+    R_NUM: 3
+
+TEXT:
+    EMBEDDING_DIM: 256
+    CAPTIONS_PER_IMAGE: 5
+    WORDS_NUM: 12
